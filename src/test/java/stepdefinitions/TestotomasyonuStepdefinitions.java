@@ -65,11 +65,12 @@ public class TestotomasyonuStepdefinitions {
     @Given("l'utilisateur est {string} sur la page d'accueil")
     public void l_utilisateur_est_sur_la_page_d_accueil(String configdenIstenenUrl) {
         Driver.getdriver().get(ConfigReader.getProperty(configdenIstenenUrl));
-
     }
-    @Then("il clique sur le bouton {string}")
-    public void il_clique_sur_le_bouton(String string) {
+
+    @Then("il clique sur le bouton account")
+    public void ilCliqueSurLeBoutonAccount() {
         testotomasyonuPage.accountLinki.click();
+
     }
 
     @Then("il saisit  {string} comme adresse électronique")
@@ -92,6 +93,14 @@ public class TestotomasyonuStepdefinitions {
     public void il_teste_la_réussite_de_l_entrée() {
         Assertions.assertTrue(testotomasyonuPage.logOutButonu.isDisplayed());
     }
+
+
+    @Then("il teste que l'entrée n'a pas réussi")
+    public void il_teste_que_l_entrée_n_a_pas_réussi() {
+        Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
+    }
+
+
 
 
 }
