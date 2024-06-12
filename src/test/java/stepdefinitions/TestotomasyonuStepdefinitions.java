@@ -14,21 +14,34 @@ public class TestotomasyonuStepdefinitions {
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
 
 
-    @Given("kullanici testotomasyonu anasayfaya gider")
-    public void kullanici_testotomasyonu_anasayfaya_gider() {
+    @Given("l'utilisateur est sur la page d'accueil")
+    public void l_utilisateur_est_sur_la_page_d_accueil() {
         Driver.getdriver().get(ConfigReader.getProperty("toUrl"));
     }
-    @When("arama kutusunda phone yazip aratir")
-    public void arama_kutusunda_phone_yazip_aratir() {
+
+    @When("il recherche phone dans la boîte de recherche")
+    public void ilRecherchePhoneDansLaBoîteDeRecherche() {
         testotomasyonuPage.aramakutusu.sendKeys("phone" + Keys.ENTER);
     }
-    @Then("arama sonucunda urun bulunabildigini test eder")
-    public void arama_sonucunda_urun_bulunabildigini_test_eder() {
+
+    @Then("il devrai voir un produit est trouvé à la fin d'une recherche")
+    public void il_devrai_voir_un_produit_est_trouvé_à_la_fin_d_une_recherche() {
         Assertions.assertTrue(testotomasyonuPage.sonucElementleriList.size()>0);
+
     }
-    @Then("sayfayi kapatir")
-    public void sayfayi_kapatir() {
+    @Then("il ferme la page")
+    public void il_ferme_la_page() {
         Driver.quitDriver();
     }
 
+
+    @When("il recherche dress dans la boîte de recherche")
+    public void ilRechercheDressDansLaBoîteDeRecherche() {
+        testotomasyonuPage.aramakutusu.sendKeys("dress" + Keys.ENTER);
+    }
+
+    @When("il recherche samsung dans la boîte de recherche")
+    public void ilRechercheSamsungDansLaBoîteDeRecherche() {
+        testotomasyonuPage.aramakutusu.sendKeys("samsung" + Keys.ENTER);
+    }
 }
