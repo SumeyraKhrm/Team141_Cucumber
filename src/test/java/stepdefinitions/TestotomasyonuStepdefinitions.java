@@ -48,19 +48,50 @@ public class TestotomasyonuStepdefinitions {
 
 
     @When("il recherche {string} dans la boîte de recherche")
-    public void ilRechercheDansLaBoîteDeRecherche(String motDemandé) {
-        testotomasyonuPage.aramakutusu.sendKeys(motDemandé + Keys.ENTER);
+    public void ilRechercheDansLaBoîteDeRecherche(String motDemande) {
+        testotomasyonuPage.aramakutusu.sendKeys(motDemande + Keys.ENTER);
     }
 
     @And("attente {int} secondes")
-    public void attenteSecondes(int délaiAttente) {
+    public void attenteSecondes(int delaiAttente) {
         try {
-            Thread.sleep(délaiAttente*1000);
+            Thread.sleep(delaiAttente*1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
+
+    @Given("l'utilisateur est {string} sur la page d'accueil")
+    public void l_utilisateur_est_sur_la_page_d_accueil(String configdenIstenenUrl) {
+        Driver.getdriver().get(ConfigReader.getProperty(configdenIstenenUrl));
+
+    }
+    @Then("il clique sur le bouton {string}")
+    public void il_clique_sur_le_bouton(String string) {
+        testotomasyonuPage.accountLinki.click();
+    }
+
+    @Then("il saisit  {string} comme adresse électronique")
+    public void il_saisit_comme_adresse_électronique(String configVerilenEmail) {
+    testotomasyonuPage.loginEmailKutusu.sendKeys(ConfigReader.getProperty(configVerilenEmail));
+    }
+
+    @Then("il saisit  {string} comme mot de passe")
+    public void il_saisit_comme_mot_de_passe(String configVerilenPassword) {
+        testotomasyonuPage.loginPasswordKutusu
+                .sendKeys(ConfigReader.getProperty(configVerilenPassword));
+    }
+
+    @Then("il clique sur le bouton signIn")
+    public void il_clique_sur_le_bouton_sign_ın() {
+        testotomasyonuPage.loginSiginButonu.click();
+    }
+
+    @Then("il teste la réussite de l'entrée")
+    public void il_teste_la_réussite_de_l_entrée() {
+        Assertions.assertTrue(testotomasyonuPage.logOutButonu.isDisplayed());
+    }
 
 
 }
