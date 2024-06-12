@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -44,4 +45,22 @@ public class TestotomasyonuStepdefinitions {
     public void ilRechercheSamsungDansLaBoîteDeRecherche() {
         testotomasyonuPage.aramakutusu.sendKeys("samsung" + Keys.ENTER);
     }
+
+
+    @When("il recherche {string} dans la boîte de recherche")
+    public void ilRechercheDansLaBoîteDeRecherche(String motDemandé) {
+        testotomasyonuPage.aramakutusu.sendKeys(motDemandé + Keys.ENTER);
+    }
+
+    @And("attente {int} secondes")
+    public void attenteSecondes(int délaiAttente) {
+        try {
+            Thread.sleep(délaiAttente*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
 }
