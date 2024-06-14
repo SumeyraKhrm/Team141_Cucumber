@@ -1,6 +1,8 @@
 Feature: US1004 Kullanici gecerli bilgilerle sisteme giris yapabilir
 
+  @regression @smoke @wip  #work In Progress
   Scenario: TC08 Gecerli bilgilerle sisteme giris yapilabilmeli
+
 
 
     Given l'utilisateur est "toUrl" sur la page d'accueil
