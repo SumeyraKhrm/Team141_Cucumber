@@ -25,7 +25,6 @@ import org.junit.platform.suite.api.Suite;
 public class Runner {
 
 
-
      /*
         Cucumber'da istenen feature/Scenario'lari celistirmak icin kullandigimiz
         Runner class'i BOS bir class'dir.
