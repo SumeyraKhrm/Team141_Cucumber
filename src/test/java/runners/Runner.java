@@ -6,7 +6,7 @@ import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
-
+//Cucumber kullanırken Junit ekleniyor, bağlantılı !!!
 // bu notation lar eklenemeli yani tag'lar
 
 @Suite
@@ -17,7 +17,8 @@ import org.junit.platform.suite.api.Suite;
 //@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@wip")
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-//@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, html:target/cucumber-report/HtmlReport.html")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, html:target/cucumber-report/HtmlReport.html")
+//bu rapor için bu natation şart
 
 
 
@@ -29,14 +30,13 @@ public class Runner {
         Cucumber'da istenen feature/Scenario'lari celistirmak icin kullandigimiz
         Runner class'i BOS bir class'dir.
 
-        Istedigimiz class'lari belirlemek,
-        calisan class'lara rapor eklemek
+        Istedigimiz class'lari belirlemek, calisan class'lara rapor eklemek
         ve feature dosyalari ile stepdefinitions class'larini irtibatlandirmak icin
         notasyonlar kullanacagiz
 
 
         dry run = true secildiginde kodlari calistirmaya gayret etmez
-                       SADECE eksik adim var mi diye kontrol eder
+                       SADECE eksik adim var mi diye kontrol eder !!
                        ve varsa eksik adimlari bizim icin olusturur
                        Eksik adim yoksa KODLARI CALISTIRMAZ,
                        eksik adim kalmadigini soylemek icin test passed yazdirir
