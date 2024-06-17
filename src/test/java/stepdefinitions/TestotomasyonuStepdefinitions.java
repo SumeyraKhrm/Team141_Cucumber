@@ -1,9 +1,13 @@
 package stepdefinitions;
 
+import com.google.j2objc.annotations.WeakOuter;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -11,12 +15,18 @@ import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class TestotomasyonuStepdefinitions  {
 
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+
+    String exceldeArananUrunIsmi;
+    double exceldeArananUrunMinSonucSayisi;
+    double aramaSonucundaBulunanSonucSayisi;
     Actions actions = new Actions(Driver.getdriver());
 
 
@@ -117,8 +127,47 @@ public class TestotomasyonuStepdefinitions  {
 
     }
 
+    @When("il saisit directement  {string} comme adresse électronique")
+    public void il_saisit_directement_comme_adresse_électronique(String direkVerilenEmail) {
+        testotomasyonuPage.loginEmailKutusu.sendKeys(direkVerilenEmail);
+    }
+
+    @When("il saisit directement {string} comme mot de passe")
+    public void il_saisit_directement_comme_mot_de_passe(String direkVerilenPasword) {
+        testotomasyonuPage.loginPasswordKutusu.sendKeys(direkVerilenPasword);
+    }
 
 
+    @Then("il enregistre la quantité min. et le nom du produit dans {string} dans le produit excel")
+    public void il_enregistre_la_quantité_min_et_le_nom_du_produit_dans_dans_le_produit_excel(String satirNoStr) throws IOException {
 
+        String dosyaYolu = "src/test/resources/urunListesi.xlsx";
+        FileInputStream fileInputStream = new FileInputStream(dosyaYolu);
+        Workbook workbook = WorkbookFactory.create(fileInputStream);
+        Sheet sheet1 = workbook.getSheet("Sheet1");
+
+        int satirNo = Integer.parseInt(satirNoStr);
+        exceldeArananUrunIsmi = sheet1.getRow(satirNo-1).getCell(0).toString();
+
+        exceldeArananUrunMinSonucSayisi = sheet1.getRow(satirNo-1).getCell(1).getNumericCellValue();
+
+    }
+
+    @Then("il recherche le nom du produit sur la page d'automatisation des tests et enregistre le nombre de résultats")
+    public void il_recherche_le_nom_du_produit_sur_la_page_d_automatisation_des_tests_et_enregistre_le_nombre_de_résultats() {
+        testotomasyonuPage.aramakutusu.sendKeys(exceldeArananUrunIsmi + Keys.ENTER);
+
+        String sonucYazısı = testotomasyonuPage.aramaSonucElementi.getText();  //4 product Found
+
+        sonucYazısı = sonucYazısı.replaceAll("\\D",""); // "4"
+
+        aramaSonucundaBulunanSonucSayisi = Double.parseDouble(sonucYazısı);
+    }
+
+    @Then("il teste que le nombre d'articles trouvés est égal ou supérieur à la quantité min. indiquée dans {string}")
+    public void il_teste_que_le_nombre_d_articles_trouvés_est_égal_ou_supérieur_à_la_quantité_min_indiquée_dans(String string) {
+
+        Assertions.assertTrue(aramaSonucundaBulunanSonucSayisi>= exceldeArananUrunMinSonucSayisi);
+    }
 
 }
