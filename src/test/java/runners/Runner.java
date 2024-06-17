@@ -17,7 +17,7 @@ import org.junit.platform.suite.api.Suite;
 //@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@wip")
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, html:target/cucumber-report/CokluAramaTesti.html")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, html:target/cucumber-report/CokluNegatifLoginTesti.html")
 //bu rapor için bu natation şart
 
 

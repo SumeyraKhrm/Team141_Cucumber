@@ -6,13 +6,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class TestotomasyonuStepdefinitions {
+
+
+
+public class TestotomasyonuStepdefinitions  {
 
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+    Actions actions = new Actions(Driver.getdriver());
 
 
     @Given("l'utilisateur est sur la page d'accueil")
@@ -97,8 +102,21 @@ public class TestotomasyonuStepdefinitions {
 
     @Then("il teste que l'entrée n'a pas réussi")
     public void il_teste_que_l_entrée_n_a_pas_réussi() {
-        Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
+
+
+        try {
+            Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
+        } catch (Exception e) {
+            actions.sendKeys(Keys.PAGE_DOWN);
+            testotomasyonuPage.logOutButonu.click();
+            Driver.quitDriver();
+            // failed olan assertion'i try catch ile handle ettik
+            // logout yaptiktan sonra yeniden testi FAILED etmemiz gerekir
+            Assertions.assertTrue(false);
+        }
+
     }
+
 
 
 
