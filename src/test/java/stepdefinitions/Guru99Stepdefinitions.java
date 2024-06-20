@@ -36,6 +36,7 @@ public class Guru99Stepdefinitions {
     @And("il fait une capture d'écran de la page entière et l'enregistre sous le nom {string}")
     public void il_fait_une_capture_d_écran_de_la_page_entière_et_l_enregistre_sous_le_nom(String raporAdiStr) {
 
+        ReusableMethods.tumSayfaScreenshot(Driver.getdriver(),raporAdiStr);
 
     }
 }

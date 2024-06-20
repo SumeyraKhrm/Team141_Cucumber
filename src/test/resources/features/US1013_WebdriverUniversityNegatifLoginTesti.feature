@@ -3,6 +3,8 @@ Feature: US1013 fake bilgilerle sisteme giris yapilamaz
 
   Scenario: TC19 Fake bilgilerle sisteme giris yapilamamali
 
+    #control + sorgu linki ile >stepdefinition gider
+
     Given l'utilisateur est "webUniUrl" sur la page d'accueil
     Then Il descend jusqu'au portail de login
     And  il clique sur le portail de login
