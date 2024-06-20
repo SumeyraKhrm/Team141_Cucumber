@@ -16,4 +16,5 @@ Feature: US1013 fake bilgilerle sisteme giris yapilamaz
     And  il ferme la fenêtre popup en disant ok
     Then il revient ensuite à la première fenêtre
     And  il teste pour voir s'il est revenu à la première fenêtre.
+    And il ferme la page
 

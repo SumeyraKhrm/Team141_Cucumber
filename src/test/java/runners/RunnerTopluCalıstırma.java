@@ -12,9 +12,9 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("src/test/java")
-@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME,value = "src/test/resources/features/wip")
+@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME,value = "src/test/resources/features")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,value = "stepdefinitions")
-//@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@wip")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@smoke")
 //buradan istediğimiz testleri çalıstırız "@wip"
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
@@ -24,7 +24,7 @@ import org.junit.platform.suite.api.Suite;
 
 
 
-public class Runner {
+public class RunnerTopluCalıstırma {
 
 
      /*
