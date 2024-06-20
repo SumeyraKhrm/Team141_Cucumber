@@ -4,7 +4,7 @@ Feature: US1002 Kullanici scenario baslarindaki ortak adimlari Background ile ku
      Given l'utilisateur est sur la page d'accueil
         # sadece baslangictaki ortak adimlar Background olarak tanimlanabilir
 
-
+ @smoke
   Scenario: TC04 Kullanici sitede phone aratabilmeli
 
     When  il recherche phone dans la boîte de recherche

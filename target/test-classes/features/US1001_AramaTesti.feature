@@ -16,6 +16,7 @@
       And   il ferme la page
 
 
+      @smoke
       Scenario: TC03 Kullanici sitede samsung aratabilmeli
         Given l'utilisateur est sur la page d'accueil
         When il recherche samsung dans la boîte de recherche

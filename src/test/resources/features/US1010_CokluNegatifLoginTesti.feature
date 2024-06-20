@@ -1,6 +1,7 @@
 
 Feature: US1010 liste olarak verilen gecersiz bilgilerle giris yapilamaz
 
+
   Scenario Outline: TC16 Yanlis bilgilerle giris yapilamamali
     #control + üstne gelirsen o sorguya gider
 

@@ -1,4 +1,4 @@
-@smoke
+
 Feature: US1009 kullanici testotomasyonu sayfasinda toplu arama yapar
 
   Scenario Outline: TC15 kullanici coklu urun aramasi yapabilmeli
