@@ -18,7 +18,7 @@ import org.junit.platform.suite.api.Suite;
 //buradan istediğimiz testleri çalıstırız "@wip"
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-report/cucumberRapor.json")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-reports/cucumberRapor.json")
 //bu rapor için bu natation şart
 
 

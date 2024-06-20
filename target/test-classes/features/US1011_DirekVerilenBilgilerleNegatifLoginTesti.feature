@@ -11,6 +11,7 @@ Feature: US1011 Direk verilen yanlis bilgilerle giris yapilamaz
     And attente 2 secondes
     And il teste que l'entrée n'a pas réussi
     And attente 2 secondes
+    And il ferme la page
     
     #Then sayfayi kapatir
 

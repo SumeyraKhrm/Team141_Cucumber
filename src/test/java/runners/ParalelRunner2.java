@@ -14,11 +14,11 @@ import org.junit.platform.suite.api.Suite;
 @SelectClasspathResource("src/test/java")
 @ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME,value = "src/test/resources/features")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,value = "stepdefinitions")
-@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@smoke")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@E2E")
 //buradan istediğimiz testleri çalıstırız "@wip"
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-report/cucumberRapor2.json")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-reports/cucumberRapor2.json")
 //bu rapor için bu natation şart
 
 

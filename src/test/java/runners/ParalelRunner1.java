@@ -8,6 +8,8 @@ import org.junit.platform.suite.api.Suite;
 
 //Cucumber kullanırken Junit ekleniyor, bağlantılı !!!
 // bu notation lar eklenemeli yani tag'lar
+// PARALEL TESTLERI terminalden mvn clean verify yazarak çalıstır
+//pom xml den gerekli düzenlemeyi yapmayı unutma
 
 @Suite
 @IncludeEngines("cucumber")
@@ -18,7 +20,7 @@ import org.junit.platform.suite.api.Suite;
 //buradan istediğimiz testleri çalıstırız "@wip"
 //bunu cok begenmedik cunku ıgnorer ettıgımız caselerıde calıstırıyor
 @ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-report/cucumberRapor1.json")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-reports/cucumberRapor1.json")
 //bu rapor için bu natation şart
 
 

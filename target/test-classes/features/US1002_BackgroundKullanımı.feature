@@ -18,6 +18,7 @@ Feature: US1002 Kullanici scenario baslarindaki ortak adimlari Background ile ku
     Then  il devrai voir un produit est trouvé à la fin d'une recherche
     And   il ferme la page
 
+    @E2E
   Scenario: TC05 Kullanici sitede samsung aratabilmeli
 
     When il recherche samsung dans la boîte de recherche
