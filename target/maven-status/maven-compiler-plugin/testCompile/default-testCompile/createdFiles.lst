@@ -5,6 +5,7 @@ stepdefinitions/HeroStepdefinitions.class
 pages/HeroPage.class
 utilities/ReusableMethods.class
 runners/RunnerTopluCalıstırmaJsonRaporlu.class
+runners/Aciklamalar.class
 runners/Runner.class
 stepdefinitions/FacebookStepdefinitions.class
 pages/FacebookPage.class
